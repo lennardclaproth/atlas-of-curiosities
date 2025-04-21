@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    container_name: jenkins  # Customize the container name here
+    ports:
+      - "8080:8080"   # Jenkins default UI port
+      - "50000:50000" # Jenkins agent port (for build agents)
+    volumes:
+      - jenkins_data:/var/jenkins_home   # Persistent volume for Jenkins data
+#    environment:
+#      - JENKINS_OPTS=--prefix=/jenkins   # Optional, prefix to access Jenkins at http://localhost:8080/jenkins
+    networks:
+      - jenkins_network
+    restart: always
+
+networks:
+  jenkins_network:
+    driver: bridge
+
+volumes:
+  jenkins_data:
