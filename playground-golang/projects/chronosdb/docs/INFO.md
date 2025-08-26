@@ -28,3 +28,4 @@
 
 1. [Writing my own database from scratch](https://www.youtube.com/watch?v=5Pc18ge9ohI)
 2. [CMU intro to database systems](https://www.youtube.com/watch?v=otE2WvX3XdQ&list=PLSE8ODhjZXjYDBpQnSymaectKjxCy6BYq)
+3. [The Search Tree (B-Tree) Makes the Index Fast](https://use-the-index-luke.com/sql/anatomy/the-tree)
