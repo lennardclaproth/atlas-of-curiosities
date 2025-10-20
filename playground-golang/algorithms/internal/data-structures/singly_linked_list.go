@@ -20,7 +20,7 @@ func (curr *SinglyLinkedList[T]) Insert(new *SinglyLinkedList[T]) {
 }
 
 // A constructor for creating a new node
-func NewNode[T any](data T) *SinglyLinkedList[T] {
+func NewSinglyLinkedList[T any](data T) *SinglyLinkedList[T] {
 	return &SinglyLinkedList[T]{
 		data: data,
 	}

@@ -6,9 +6,9 @@ import (
 
 // TestInsert checks if nodes are inserted correctly.
 func TestInsert(t *testing.T) {
-	head := NewNode(1)
-	node2 := NewNode(2)
-	node3 := NewNode(3)
+	head := NewSinglyLinkedList(1)
+	node2 := NewSinglyLinkedList(2)
+	node3 := NewSinglyLinkedList(3)
 
 	// Insert nodes: head -> node2 -> node3
 	head.Insert(node2)
@@ -34,8 +34,8 @@ func TestInsert(t *testing.T) {
 
 // TestInsertIntoEmptyList checks inserting a node into a single-node list.
 func TestInsertIntoEmptyList(t *testing.T) {
-	head := NewNode(42)
-	newNode := NewNode(99)
+	head := NewSinglyLinkedList(42)
+	newNode := NewSinglyLinkedList(99)
 
 	head.Insert(newNode)
 
@@ -50,11 +50,11 @@ func TestInsertIntoEmptyList(t *testing.T) {
 
 // TestMultipleInserts ensures that multiple insertions work correctly.
 func TestMultipleInserts(t *testing.T) {
-	head := NewNode(1)
+	head := NewSinglyLinkedList(1)
 
 	// Insert multiple nodes
 	for i := 2; i <= 5; i++ {
-		newNode := NewNode(i)
+		newNode := NewSinglyLinkedList(i)
 		head.Insert(newNode)
 	}
 
@@ -71,8 +71,8 @@ func TestMultipleInserts(t *testing.T) {
 
 // TestInsertWithDifferentTypes ensures generic types work as expected.
 func TestInsertWithDifferentTypes(t *testing.T) {
-	head := NewNode("first")
-	newNode := NewNode("second")
+	head := NewSinglyLinkedList("first")
+	newNode := NewSinglyLinkedList("second")
 
 	head.Insert(newNode)
 
