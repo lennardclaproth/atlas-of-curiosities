@@ -1,4 +1,4 @@
-package SortingAlgorithms
+package algorithms
 
 import (
 	"golang.org/x/exp/constraints"
@@ -18,7 +18,7 @@ func SelectionSort[T constraints.Ordered](arr []T) {
 		// We need to track the index of the smallest value
 		minI := i
 
-		// Loop over unsorted partition and get the smallest 
+		// Loop over unsorted partition and get the smallest
 		// value and its index
 		for j := i + 1; j < n; j++ {
 			//Check values

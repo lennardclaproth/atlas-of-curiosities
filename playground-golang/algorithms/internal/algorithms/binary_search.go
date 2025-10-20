@@ -1,4 +1,4 @@
-package SearchAlgorithms
+package algorithms
 
 import "golang.org/x/exp/constraints"
 

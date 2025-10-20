@@ -1,4 +1,4 @@
-package DataStructures
+package datastruct
 
 // A linkedList is a list whith a reference to the
 // next item and its previous item. reading from the
