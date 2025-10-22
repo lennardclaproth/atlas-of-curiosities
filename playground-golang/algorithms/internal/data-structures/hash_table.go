@@ -16,7 +16,7 @@ func NewHashTable[T comparable](size int) (*HashTable[T], error) {
 	}
 
 	return &HashTable[T]{
-		buckets: make([]*SinglyLinkedList[T], 0, size),
+		buckets: make([]*SinglyLinkedList[T], size),
 	}, nil
 }
 
@@ -64,27 +64,31 @@ func (h *HashTable[T]) getIndex(i T) int {
 	return int(hash % uint64(len(h.buckets)))
 }
 
+// Remove removes an item from the hashtable by the actual item. It checks 
+// the data in the bucket if it finds itself it Removes the data.
 func (h *HashTable[T]) Remove(i T) error {
+	// Get the index from the item and set the head to the value in the bucket
 	index := h.getIndex(i)
 	head := h.buckets[index]
-
+	// Head should not be null here however we check if it is null and return an error if it is null
 	if head == nil {
 		return fmt.Errorf("data not found in hash table")
 	}
-
+	// If the data of the head is equal to i we set the value of the bucket to the next of the head
 	if head.data == i {
 		h.buckets[index] = head.next
 		return nil
 	}
-
+	// Set curr to the head and loop over all the next while it is not nil. When we have the hit on
+	// on the data we update the the value and return
 	curr := head
 	for curr.next != nil {
 		if curr.next.data == i {
-			curr.next = curr.next.next
+			curr.Insert(curr.next.next) 
 			return nil
 		}
 		curr = curr.next
 	}
-
+	// Finally return an error when the data is not found in the hash table.
 	return fmt.Errorf("data not found in hash table")
 }
